@@ -31,18 +31,41 @@ if(isset($_POST['calcul'])){
       break;
       
   }
-  
-  
+  $cp=0;
+  $smd=0;
+  if(is_int($resu)){
+    if($resu%2==0){
+      $p= "et est nombre paire";
+    }
+    else{
+      $p= "n'est pas un nombre paire";
+    }
+
+    for($i=0;$i<=$resu;$i++){
+      if($i%2==0){
+        $cp+=1;
+        $smd=$smd+$i;
+      }
+
+  }
+  if($cp==2){
+    $np="ce nombre est premier ";
+  }
+  elseif($cp !=2){
+    $np="ce nombre n'est pas premier ";
+  }
+
+  if($resu==$smd - $resu){
+    $npa="ce nombre est parfait ";
+  }
+  else{
+    $npa="ce nombre est pas parfait ";
+  }
+  }
 
 }
 
 ?>
-
-
-
-
-
-
 
 
 
@@ -67,35 +90,42 @@ if(isset($_POST['calcul'])){
 </head>
 <body id="body">
 
-<div id="login-card" class="card">
-<div class="card-body">
-  <h2 class="text-center">Calculatrice</h2>
-  <br>
-  <form action="index.php" method="POST">
-    <div class="form-group">
-      <input type="number" required class="form-control" id="email" placeholder="Saisir le premier nombre" value='<?php if(isset($_POST['calcul'])){ echo $nbr1;} ?>' name="x">
-    </div>
-    <select id="pet-select" class="form-group" value='' name="ope" required>
-      <option value="" ><?php if(isset($_POST['calcul'])){ echo $operarion;} ?></option>
-      <option value="addition">addition(+)</option>
-      <option value="multiplication">multiplication(*)</option>
-      <option value="soustraction">soustraction(-)</option>
-      <option value="division">division(/)</option>
-  
-    </select>
-    <div class="form-group">
-      <input type="number" class="form-control" required id="email" placeholder="Saisir le second nombre" value='<?php if(isset($_POST['calcul'])){ echo $nbr2;} ?>' name="y">
-    </div>
-    <button type="submit" id="button" class="btn btn-primary deep-purple btn-block " name="calcul">Calculer</button>
-    
-<br>
-    <br>
-    <div class="form-group">
-      <input type="texte" class="form-control"  id="email" disabled='disabled' placeholder="Resultat" value='<?php if(isset($_POST['calcul'])){ echo $resu;} ?>' name="r">
-    </div>
-   
-    
+  <div id="login-card" class="card">
+      <div class="card-body">
+        <h2 class="text-center">Calculatrice</h2>
+        <br>
+        <form action="index.php" method="POST">
+          <div class="form-group">
+            <input type="number" required class="form-control" id="email" placeholder="Saisir le premier nombre" value='<?php if(isset($_POST['calcul'])){ echo $nbr1;} ?>' name="x">
+          </div>
+          <select id="pet-select" class="form-group" value='' name="ope" required>
+            <option value="" ><?php if(isset($_POST['calcul'])){ echo $operarion;} ?></option>
+            <option value="addition">addition(+)</option>
+            <option value="multiplication">multiplication(*)</option>
+            <option value="soustraction">soustraction(-)</option>
+            <option value="division">division(/)</option>
+        
+          </select>
+          <div class="form-group">
+            <input type="number" class="form-control" required id="email" placeholder="Saisir le second nombre" value='<?php if(isset($_POST['calcul'])){ echo $nbr2;} ?>' name="y">
+          </div>
+          <button type="submit" id="button" class="btn btn-primary deep-purple btn-block " name="calcul">Calculer</button>
+          
+      <br>
+          <br>
+          <div class="form-group">
+            <input type="texte" class="form-control"  id="email" disabled='disabled' placeholder="Resultat" value='<?php if(isset($_POST['calcul'])){ echo $resu;} ?>' name="r">
+          </div>
+        
+          
 
-  </form>
-</div>
-<div>
+        </form>
+        <?php if(isset($_POST['calcul'])){ echo "-".$np. "<br> -".$npa. "<br> -" .$p ;} ?>
+      </div>
+
+      <div id="adBar">
+        <marquee>Alfousseni Calculator</marquee>
+      </div>
+  </div>
+</body>
+        
