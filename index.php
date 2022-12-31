@@ -92,7 +92,7 @@ if(isset($_POST['calcul'])){
 
   <div id="login-card" class="card">
       <div class="card-body">
-        <h2 class="text-center">Calculatrice</h2>
+        <h2 class="text-center">Calculatrice entiere</h2>
         <br>
         <form action="index.php" method="POST">
           <div class="form-group">
